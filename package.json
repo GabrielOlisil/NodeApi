@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "build": "tsc && ./node_modules/.bin/netlify-lambda build src"
   },
   "dependencies": {
     "express": "^4.18.2",
