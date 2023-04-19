@@ -1,17 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
+import j from "./data/events.json";
+import cors from "cors";
+
+const router = express.Router();
 
 dotenv.config();
 
-// Create an instance of the Express app
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({
-    deu: "certo",
-  });
+router.get("/events", (req, res) => {
+  res.json(j);
 });
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log(`Server running on port ${3000}`));
+app.use(cors());
+app.use(router);
+app.listen(PORT, () =>
+  console.log(`Server running on port ${process.env.PORT}`)
+);
